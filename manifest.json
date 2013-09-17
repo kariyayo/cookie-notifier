@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "cookie notifier",
+  "description": "cookie notifier",
+  "version": "1.0",
+
+  "background": {"page":"background.html"},
+  "permissions": [
+    "tabs",
+    "notifications",
+    "http://orteil.dashnet.org/cookieclicker/"
+  ]
+}
+
