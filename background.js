@@ -1,6 +1,6 @@
 function showNotification(obj) {
   if (window.webkitNotifications.checkPermission() == 0) {
-    var icon = 'http://orteil.dashnet.org/cookieclicker/img/perfectCookie.png';
+    var icon = 'cookie.png';
     var title = "You have \"" + obj.my_cookies + "\" cookies.";
     var message = [];
     message.push("You can buy a time \"" + obj.title + "\"!\n");
