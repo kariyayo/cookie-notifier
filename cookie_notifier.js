@@ -4,9 +4,9 @@
     var price = document.querySelector("#" + id + " .price");
     var owned = document.querySelector("#" + id + " .owned");
     return {
-      "title": title ? title.innerText : "",
-      "price": price ? price.innerText : "",
-      "owned": owned ? owned.innerText : ""
+      "title": title ? title.innerText : "noname",
+      "price": price ? price.innerText : "0",
+      "owned": owned ? owned.innerText : "0"
     };
   };
   var to_num = function(num_text){

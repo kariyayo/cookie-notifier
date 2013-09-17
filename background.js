@@ -3,7 +3,7 @@ function showNotification(obj) {
     var icon = 'cookie.png';
     var title = "You have \"" + obj.my_cookies + "\" cookies.";
     var message = [];
-    message.push("You can buy a time \"" + obj.title + "\"!\n");
+    message.push("You can buy a \"" + obj.title + "\"!\n");
     message.push("price : " + obj.price + "\n");
     message.push("owned : " + obj.owned);
     var n = window.webkitNotifications.createNotification(icon, title, message.join(''));
