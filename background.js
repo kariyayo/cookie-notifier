@@ -1,3 +1,5 @@
+var timerId = null;
+
 function showNotification(obj) {
   if (window.webkitNotifications.checkPermission() == 0) {
     var icon = 'cookie.png';
@@ -8,7 +10,9 @@ function showNotification(obj) {
     message.push("owned : " + obj.owned);
     var n = window.webkitNotifications.createNotification(icon, title, message.join(''));
     n.ondisplay = function() {
-      setTimeout(function() { n.cancel(); }, 5000);
+      var displayPeriod = localStorage["display_period_msec"];
+      if (!displayPeriod) displayPeriod = 5000;
+      setTimeout(function() { n.cancel(); }, displayPeriod);
     };
     n.show();
   } else {
@@ -24,9 +28,17 @@ function check() {
   });
 }
 
+function init(interval) {
+  if (timerId) {
+    clearInterval(timerId);
+  }
+  timerId = setInterval(check, interval);
+}
+
 chrome.extension.onRequest.addListener(function(request) {
   showNotification(request);
 });
-
-setInterval(check, 60000);
+var intervalTime = localStorage["interval_msec"];
+if (!intervalTime) intervalTime = 60000;
+init(intervalTime);
 
